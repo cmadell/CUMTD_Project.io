@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CUMTD Project</title>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>CUMTD Bus Project</h1>
+    <div class="alert">Your message has been sent! Please wait 1 minute to send another request.</div>
+    <form id="selectionForm">
+      Select up to two buses from the list below:
+      <p></p>
+      <input class="green5E" type="checkbox" name="5E Green" id="5E Green"></input>5E Green
+      <br />
+      <input class="greenHopper5E" type="checkbox" name="5E GreenHopper" id="5E GreenHopper"></input>5E GreenHopper
+      <br />
+      <input class="limitedIllini220N" type="checkbox" name="220N Illini Limited" id="220N Illini Limited"></input>220N Illini Limited
+      <br />
+      <input class = "lmitiedIlini220S" type="checkbox" name="220S Illini Limited" id="220S Illini Limited"></input>220S Illini Limited
+      <br />
+      <input class = "silver13N" type="checkbox" name="13N Silver" id="13N Silver"></input>13N Silver
+      <p></p>
+      Chose from one of the stops below:
+      <p></p>
+      <input class = "firstDaniel" type="checkbox" name="First and Daniel" id="First and Daniel"></input>First and Daniel
+      <br />
+      <input class="illiniUnion" type="checkbox" name="Illini Union" id="Illini Union"></input>Illini Union
+      <br />
+      <input class="transitPlaza" type="checkbox" name="Transit Plaza" id="Transit Plaza"></input>Transit Plaza
+      <br />
+      <p></p>
+      <input type="submit" name="submit" value="Submit!" />
+    </form>
+    <script src="script.js"></script>
+ </body>
+</html>
