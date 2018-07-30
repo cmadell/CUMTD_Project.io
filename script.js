@@ -46,7 +46,7 @@ document.getElementById('selectionForm').addEventListener('submit', submitForm);
 
 function saveMessage(green5EChecked, greenHopper5EChecked, limitedIllini220NChecked,
    limitedIllini220SChecked, silver13NChecked, firstDanielChecked,
-    illiniUnionChecked, transitPlazaChecked, rainbowAnimationChecked){
+    illiniUnionChecked, transitPlazaChecked, rainbowAnimationChecked, snakeAnimationChecked){
       var green5E = firebase.database().ref().child("green5E");
       var greenHopper5E = firebase.database().ref().child("greenHopper5E");
       var limitedIllini220N = firebase.database().ref().child("limitedIllini220N");
