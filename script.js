@@ -25,11 +25,12 @@ document.getElementById('selectionForm').addEventListener('submit', submitForm);
    var firstDanielChecked = document.getElementById("First and Daniel").checked;
    var illiniUnionChecked = document.getElementById("Illini Union").checked;
    var transitPlazaChecked = document.getElementById("Transit Plaza").checked
+   var rainbowAnimationChecked = document.getElementById("Rainbow Animation").checked;
 
    // Save message
    saveMessage(green5EChecked, greenHopper5EChecked, limitedIllini220NChecked,
       limitedIllini220SChecked, silver13NChecked, firstDanielChecked,
-       illiniUnionChecked, transitPlazaChecked);
+       illiniUnionChecked, transitPlazaChecked, rainbowAnimationChecked);
 
     // Show alert
     document.querySelector('.alert').style.display = 'block';
@@ -45,7 +46,7 @@ document.getElementById('selectionForm').addEventListener('submit', submitForm);
 
 function saveMessage(green5EChecked, greenHopper5EChecked, limitedIllini220NChecked,
    limitedIllini220SChecked, silver13NChecked, firstDanielChecked,
-    illiniUnionChecked, transitPlazaChecked){
+    illiniUnionChecked, transitPlazaChecked, rainbowAnimationChecked){
       var green5E = firebase.database().ref().child("green5E");
       var greenHopper5E = firebase.database().ref().child("greenHopper5E");
       var limitedIllini220N = firebase.database().ref().child("limitedIllini220N");
@@ -54,6 +55,7 @@ function saveMessage(green5EChecked, greenHopper5EChecked, limitedIllini220NChec
       var firstDaniel = firebase.database().ref().child("firstDaniel");
       var illiniUnion = firebase.database().ref().child("illiniUnion");
       var transitPlaza = firebase.database().ref().child("transitPlaza");
+      var rainbowAnimation = firebase.database().ref().child("rainbow");
 
       if (green5EChecked == true) {
         green5E.set(1);
@@ -97,9 +99,9 @@ function saveMessage(green5EChecked, greenHopper5EChecked, limitedIllini220NChec
         illiniUnion.set(0);
       }
 
-      if (transitPlazaChecked == true) {
-        transitPlaza.set(1);
+      if (rainbowAnimationChecked == true) {
+        rainbowAnimation.set(1);
       } else {
-        transitPlaza.set(0);
+        rainbowAnimation.set(0);
       }
 }
