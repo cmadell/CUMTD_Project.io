@@ -104,4 +104,10 @@ function saveMessage(green5EChecked, greenHopper5EChecked, limitedIllini220NChec
       } else {
         rainbowAnimation.set(0);
       }
+
+      if (transitPlazaChecked == true) {
+        transitPlaza.set(1);
+      } else {
+        transitPlaza.set(0);
+      }
 }
