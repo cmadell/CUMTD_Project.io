@@ -26,11 +26,11 @@ document.getElementById('selectionForm').addEventListener('submit', submitForm);
    var illiniUnionChecked = document.getElementById("Illini Union").checked;
    var transitPlazaChecked = document.getElementById("Transit Plaza").checked
    var rainbowAnimationChecked = document.getElementById("Rainbow Animation").checked;
-
+   var snakeAnimationChecked = document.getElementById("Snake Animation").checked;
    // Save message
    saveMessage(green5EChecked, greenHopper5EChecked, limitedIllini220NChecked,
       limitedIllini220SChecked, silver13NChecked, firstDanielChecked,
-       illiniUnionChecked, transitPlazaChecked, rainbowAnimationChecked);
+       illiniUnionChecked, transitPlazaChecked, rainbowAnimationChecked, snakeAnimationChecked);
 
     // Show alert
     document.querySelector('.alert').style.display = 'block';
@@ -56,6 +56,7 @@ function saveMessage(green5EChecked, greenHopper5EChecked, limitedIllini220NChec
       var illiniUnion = firebase.database().ref().child("illiniUnion");
       var transitPlaza = firebase.database().ref().child("transitPlaza");
       var rainbowAnimation = firebase.database().ref().child("rainbow");
+      var snakeAnimation = firebase.database().ref().child("snake")
 
       if (green5EChecked == true) {
         green5E.set(1);
@@ -109,5 +110,11 @@ function saveMessage(green5EChecked, greenHopper5EChecked, limitedIllini220NChec
         transitPlaza.set(1);
       } else {
         transitPlaza.set(0);
+      }
+
+      if (snakeAnimationChecked == true) {
+        snakeAnimation.set(1);
+      } else {
+        snakeAnimation.set(0);
       }
 }
