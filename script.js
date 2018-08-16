@@ -8,29 +8,37 @@
    messagingSenderId: "1015645493610"
  };
  firebase.initializeApp(config);
-
+ var bus1 = "";
+ var bus2 = "";
+ var stopID = "";
  // Listen for form submit
 document.getElementById('selectionForm').addEventListener('submit', submitForm);
  // Submit form
  function submitForm(e){
+   bus1 = "";
+   bus2 = "";
+   stopID = "";
+
    e.preventDefault();
 
    // Get values
-   var green5EChecked = document.getElementById("5E Green").checked;
-   var greenHopper5EChecked = document.getElementById("5E GreenHopper").checked;
-   var limitedIllini220NChecked = document.getElementById("220N Illini Limited").checked;
-   var limitedIllini220SChecked = document.getElementById("220S Illini Limited").checked;
-   var silver13NChecked = document.getElementById("13N Silver").checked;
+   var BUS1Checked = document.getElementById("BUS1").checked;
+   var BUS2Checked = document.getElementById("BUS2").checked;
+   var BUS3Checked = document.getElementById("BUS3").checked;
+   var BUS4Checked = document.getElementById("BUS4").checked;
+   var BUS5Checked = document.getElementById("BUS5").checked;
 
-   var firstDanielChecked = document.getElementById("First and Daniel").checked;
-   var illiniUnionChecked = document.getElementById("Illini Union").checked;
-   var transitPlazaChecked = document.getElementById("Transit Plaza").checked
+   var STOP1Checked = document.getElementById("STOP1").checked;
+   var STOP2Checked = document.getElementById("STOP2").checked;
+   var STOP3Checked = document.getElementById("STOP3").checked;
+
    var rainbowAnimationChecked = document.getElementById("Rainbow Animation").checked;
    var snakeAnimationChecked = document.getElementById("Snake Animation").checked;
+
    // Save message
-   saveMessage(green5EChecked, greenHopper5EChecked, limitedIllini220NChecked,
-      limitedIllini220SChecked, silver13NChecked, firstDanielChecked,
-       illiniUnionChecked, transitPlazaChecked, rainbowAnimationChecked, snakeAnimationChecked);
+   saveMessage(BUS1Checked, BUS2Checked, BUS3Checked,
+      BUS4Checked, BUS5Checked, STOP1Checked,
+       STOP2Checked, STOP3Checked, rainbowAnimationChecked, snakeAnimationChecked);
 
     // Show alert
     document.querySelector('.alert').style.display = 'block';
@@ -38,78 +46,79 @@ document.getElementById('selectionForm').addEventListener('submit', submitForm);
     // Hide alert after 3 seconds
     setTimeout(function(){
       document.querySelector('.alert').style.display = 'none';
-    },60000);
+    },3000);
 
   // Clear form
   document.getElementById('selectionForm').reset();
 }
 
-function saveMessage(green5EChecked, greenHopper5EChecked, limitedIllini220NChecked,
-   limitedIllini220SChecked, silver13NChecked, firstDanielChecked,
-    illiniUnionChecked, transitPlazaChecked, rainbowAnimationChecked, snakeAnimationChecked){
-      var green5E = firebase.database().ref().child("green5E");
-      var greenHopper5E = firebase.database().ref().child("greenHopper5E");
-      var limitedIllini220N = firebase.database().ref().child("limitedIllini220N");
-      var limitedIllini220S = firebase.database().ref().child("limitedIllini220S");
-      var silver13N = firebase.database().ref().child("silver13N");
-      var firstDaniel = firebase.database().ref().child("firstDaniel");
-      var illiniUnion = firebase.database().ref().child("illiniUnion");
-      var transitPlaza = firebase.database().ref().child("transitPlaza");
+function saveMessage(BUS1Checked, BUS2Checked, BUS3Checked,
+   BUS4Checked, BUS5Checked, STOP1Checked,
+    STOP2Checked, STOP3Checked, rainbowAnimationChecked, snakeAnimationChecked){
+
+      var BUS1 = firebase.database().ref().child("BUS1Firebase");
+      var BUS2 = firebase.database().ref().child("BUS2Firebase");
+      var BUS3 = firebase.database().ref().child("BUS3Firebase");
+      var BUS4 = firebase.database().ref().child("BUS4Firebase");
+      var BUS5 = firebase.database().ref().child("BUS5Firebase");
+      var STOP1 = firebase.database().ref().child("STOP1Firebase");
+      var STOP2 = firebase.database().ref().child("STOP2Firebase");
+      var STOP3 = firebase.database().ref().child("STOP3Firebase");
       var rainbowAnimation = firebase.database().ref().child("rainbow");
       var snakeAnimation = firebase.database().ref().child("snake")
 
-      if (green5EChecked == true) {
-        green5E.set(1);
+      if (BUS1Checked == true) {
+        BUS1.set(1);
       } else {
-        green5E.set(0);
+        BUS1.set(0);
       }
 
-      if (greenHopper5EChecked == true) {
-        greenHopper5E.set(1);
+      if (BUS2Checked == true) {
+        BUS2.set(1);
       } else {
-        greenHopper5E.set(0);
+        BUS2.set(0);
       }
 
-      if (limitedIllini220NChecked == true) {
-        limitedIllini220N.set(1);
+      if (BUS3Checked == true) {
+        BUS3.set(1);
       } else {
-        limitedIllini220N.set(0);
+        BUS3.set(0);
       }
 
-      if (limitedIllini220SChecked == true) {
-        limitedIllini220S.set(1);
+      if (BUS4Checked == true) {
+        BUS4.set(1);
       } else {
-        limitedIllini220S.set(0);
+        BUS4.set(0);
       }
 
-      if (silver13NChecked == true) {
-        silver13N.set(1);
+      if (BUS5Checked == true) {
+        BUS5.set(1);
       } else {
-        silver13N.set(0);
+        BUS5.set(0);
       }
 
-      if (firstDanielChecked == true) {
-        firstDaniel.set(1);
+      if (STOP1Checked == true) {
+        STOP1.set(1);
       } else {
-        firstDaniel.set(0);
+        STOP1.set(0);
       }
 
-      if (illiniUnionChecked == true) {
-        illiniUnion.set(1);
+      if (STOP2Checked == true) {
+        STOP2.set(1);
       } else {
-        illiniUnion.set(0);
+        STOP2.set(0);
+      }
+
+      if (STOP3Checked == true) {
+        STOP3.set(1);
+      } else {
+        STOP3.set(0);
       }
 
       if (rainbowAnimationChecked == true) {
         rainbowAnimation.set(1);
       } else {
         rainbowAnimation.set(0);
-      }
-
-      if (transitPlazaChecked == true) {
-        transitPlaza.set(1);
-      } else {
-        transitPlaza.set(0);
       }
 
       if (snakeAnimationChecked == true) {
